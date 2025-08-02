@@ -4,13 +4,17 @@ import hms.model.Room;
 import java.util.*;
 
 public class RoomDAOMemoryImpl implements RoomDAO {
-    private final List<Room> rooms = new ArrayList<>();
+    private static List<Room> rooms;
 
     public RoomDAOMemoryImpl() {
         // Stub data
-        rooms.add(new Room(1, "Single", true));
+        if (rooms == null) {
+            rooms = new ArrayList<>();
+            rooms.add(new Room(1, "Single", true));
         rooms.add(new Room(2, "Double", false));
         rooms.add(new Room(3, "Suite", true));
+        }
+        
     }
 
     @Override

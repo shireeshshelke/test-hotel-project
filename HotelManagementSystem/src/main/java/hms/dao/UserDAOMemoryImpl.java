@@ -4,11 +4,14 @@ import hms.model.User;
 import java.util.*;
 
 public class UserDAOMemoryImpl implements UserDAO {
-    private final List<User> users = new ArrayList<>();
-
+    private static List<User> users;
     public UserDAOMemoryImpl() {
-        // Add a default user for demo
-        users.add(new User("demo", "demo"));
+       if (users == null) {
+            users = new ArrayList<>();
+            users.add(new User("admin", "admin"));
+        users.add(new User("user", "user"));
+        }
+        
     }
 
     @Override
@@ -23,6 +26,7 @@ public class UserDAOMemoryImpl implements UserDAO {
 
     @Override
     public User getUserByUsername(String username) {
+        System.out.println("Searching for user: " + username);
         for (User u : users) {
             if (u.getUsername().equals(username)) {
                 return u;

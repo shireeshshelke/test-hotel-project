@@ -79,15 +79,7 @@ public class Bills extends JFrame implements DataChangeListener {
 
     private void loadData() {
         try {
-            java.sql.Connection conn = null;
-            if (HMS.dbMode == DatabaseMode.MYSQL) {
-                try {
-                    conn = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel_db", "root", "password");
-                } catch (Exception ex) {
-                    HMS.dbMode = DatabaseMode.MEMORY;
-                }
-            }
-            CustomerFullDAO customerFullDAO = DAOFactory.getCustomerFullDAO(HMS.dbMode, conn);
+            CustomerFullDAO customerFullDAO = DAOFactory.getCustomerFullDAO(HMS.dbMode, null);
             List<CustomerFull> customers = customerFullDAO.getAllCustomerFull();
 
             Vector<String> columnNames = new Vector<>();

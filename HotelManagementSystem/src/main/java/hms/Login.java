@@ -1,6 +1,10 @@
 package hms;
 
 import javax.swing.*;
+
+import hms.dao.DAOFactory;
+import hms.dao.UserDAO;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,12 +12,13 @@ import java.awt.event.WindowEvent;
 import hms.HMS;
 import hms.dao.CustomerDAO;
 import hms.model.Customer;
+import hms.model.User;
 
 public class Login extends JFrame implements ActionListener{
     JTextField t1;
     JPasswordField t2;
     JButton b1, b2;
-
+    UserDAO userDAO;
     public Login(){
         setLayout(null);
         setSize(500,300);
@@ -88,16 +93,23 @@ public class Login extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()==b1){
             try{
+                if (userDAO == null) {
+                    userDAO = DAOFactory.getUserDAO(HMS.dbMode, null); // Initialize userDAO if not already done
+                }
+
                 String u = t1.getText();
                 String v = new String(t2.getPassword());
                 // For demo, use customerDAO for authentication (stub or DB)
                 boolean found = false;
-                for (Customer c : HMS.customerDAO.getAllCustomers()) {
-                    if (c.getName().equals(u) && c.getPhone().equals(v)) { // Demo: use name+phone as login
-                        found = true;
-                        break;
-                    }
+                
+                User user = userDAO.getUserByUsername(u);
+
+                System.out.println("Attempting login for user: " + user.getUsername() + " with password: " + user.getPassword());
+                if (user != null && user.getPassword().equals(v)) {
+                    System.out.println("Valid user found: " + user.getUsername());
+                    found = true; // Valid user found
                 }
+
                 if(found){
                     java.awt.Window win[] = java.awt.Window.getWindows();
                     for(int i=0; i<win.length; i++){
@@ -110,7 +122,7 @@ public class Login extends JFrame implements ActionListener{
                         JOptionPane.showMessageDialog(this, "Error opening Dashboard: " + ex.getMessage());
                     }
                 } else {
-                    JOptionPane.showMessageDialog(this, "Invalid login. Use stub: Alice Smith/1234567890 or Bob Johnson/0987654321");
+                    JOptionPane.showMessageDialog(this, "Invalid login.");
                     t1.setText("");
                     t2.setText("");
                 }

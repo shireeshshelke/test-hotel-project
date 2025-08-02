@@ -4,10 +4,15 @@ import hms.model.Customer;
 import java.util.*;
 
 public class CustomerDAOMemoryImpl implements CustomerDAO {
-    private final List<Customer> customers = new ArrayList<>();
+    private  static List<Customer> customers;
 
     public CustomerDAOMemoryImpl() {
-        // Stub data
+        if (customers == null) {
+            customers = new ArrayList<>();
+                    customers.add(new Customer(1, "Alice Smith", "alice@example.com", "1234567890"));
+        customers.add(new Customer(2, "Bob Johnson", "bob@example.com", "0987654321"));
+    
+        }
         customers.add(new Customer(1, "Alice Smith", "alice@example.com", "1234567890"));
         customers.add(new Customer(2, "Bob Johnson", "bob@example.com", "0987654321"));
     }

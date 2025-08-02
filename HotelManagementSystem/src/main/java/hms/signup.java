@@ -65,16 +65,7 @@ public class signup extends JFrame implements ActionListener {
             if(password2.equals(password)) {
                 try {
                     if (userDAO == null) {
-                        // Initialize DAO based on HMS.dbMode
-                        java.sql.Connection conn = null;
-                        if (HMS.dbMode == hms.DatabaseMode.MYSQL) {
-                            try {
-                                conn = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel_db", "root", "password");
-                            } catch (Exception ex) {
-                                HMS.dbMode = hms.DatabaseMode.MEMORY;
-                            }
-                        }
-                        userDAO = DAOFactory.getUserDAO(HMS.dbMode, conn);
+                        userDAO = DAOFactory.getUserDAO(HMS.dbMode, null);
                     }
                     userDAO.addUser(new User(user, password));
                     JOptionPane.showMessageDialog(null, "Signup done successfully!");

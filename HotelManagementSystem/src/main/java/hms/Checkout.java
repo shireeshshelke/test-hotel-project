@@ -39,20 +39,24 @@ public class Checkout extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
+        contentPane.setVisible(true);
 
         JLabel lblName = new JLabel("CHECK-OUT");
         lblName.setFont(new Font("Yu Mincho", Font.BOLD, 40));
         lblName.setBounds(118, 11, 260, 53);
         contentPane.add(lblName);
+        lblName.setVisible(true);
 
         JLabel lblRoomNumber = new JLabel("Room Number:");
         lblRoomNumber.setBounds(35, 80, 200, 14);
         contentPane.add(lblRoomNumber);
+        lblRoomNumber.setVisible(true);
 
         t0 = new JTextField();
         t0.setBounds(250, 80, 150, 20);
         contentPane.add(t0);
         t0.setColumns(10);
+        t0.setVisible(true);
 
         JButton sc = new JButton("Search");
         sc.addActionListener(new ActionListener() {
@@ -60,15 +64,8 @@ public class Checkout extends JFrame {
                 try {
                     String roomNum = t0.getText();
                     // Get DAOs for dual mode
-                    java.sql.Connection conn = null;
-                    if (HMS.dbMode == DatabaseMode.MYSQL) {
-                        try {
-                            conn = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel_db", "root", "password");
-                        } catch (Exception ex) {
-                            HMS.dbMode = DatabaseMode.MEMORY;
-                        }
-                    }
-                    CustomerFullDAO customerFullDAO = DAOFactory.getCustomerFullDAO(HMS.dbMode, conn);
+                    
+                    CustomerFullDAO customerFullDAO = DAOFactory.getCustomerFullDAO(HMS.dbMode, null);
                     java.util.List<CustomerFull> customers = customerFullDAO.getAllCustomerFull();
                     CustomerFull found = null;
                     for (CustomerFull c : customers) {

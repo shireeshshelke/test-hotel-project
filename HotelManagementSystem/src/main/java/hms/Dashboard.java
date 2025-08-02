@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 import hms.HMS;
 
 public class Dashboard extends JFrame{
@@ -29,12 +28,14 @@ public class Dashboard extends JFrame{
         };
         bgPanel.setLayout(null);
         setContentPane(bgPanel);
+        bgPanel.setVisible(true);
 
         JLabel welcome = new JLabel("Welcome to Hotel Management System");
         welcome.setFont(new Font("Arial", Font.BOLD, 28));
         welcome.setBounds(350, 50, 600, 50);
         welcome.setForeground(new Color(25, 25, 112));
         bgPanel.add(welcome);
+        welcome.setVisible(true);
 
         JButton btnNewButton_1 = new JButton("New Customer Entry");
         btnNewButton_1.setBounds(100, 200, 250, 60);
@@ -44,13 +45,15 @@ public class Dashboard extends JFrame{
         btnNewButton_1.setToolTipText("Add a new customer");
         btnNewButton_1.addActionListener(e -> {
             try {
-                new NewCustomer().setVisible(true);
+                NewCustomer nc = new NewCustomer();
+                nc.setVisible(true);
             } catch (Exception ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Error opening New Customer Entry: " + ex.getMessage());
             }
         });
         bgPanel.add(btnNewButton_1);
+        btnNewButton_1.setVisible(true);
 
         JButton btnNewButton_2 = new JButton("Check-out");
         btnNewButton_2.setBounds(400, 200, 250, 60);
@@ -60,13 +63,15 @@ public class Dashboard extends JFrame{
         btnNewButton_2.setToolTipText("Check out a customer");
         btnNewButton_2.addActionListener(e -> {
             try {
-                new Checkout().setVisible(true);
+                Checkout co = new Checkout();
+                co.setVisible(true);
             } catch (Exception ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Error opening Checkout: " + ex.getMessage());
             }
         });
         bgPanel.add(btnNewButton_2);
+        btnNewButton_2.setVisible(true);
 
         JButton btnNewButton_3 = new JButton("All Customer Info");
         btnNewButton_3.setBounds(700, 200, 250, 60);
@@ -76,13 +81,15 @@ public class Dashboard extends JFrame{
         btnNewButton_3.setToolTipText("View all customers");
         btnNewButton_3.addActionListener(e -> {
             try {
-                new Bills().setVisible(true);
+                Bills bills = new Bills();
+                bills.setVisible(true);
             } catch (Exception ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Error opening Customer Info: " + ex.getMessage());
             }
         });
         bgPanel.add(btnNewButton_3);
+        btnNewButton_3.setVisible(true);
 
         JButton btnNewButton_5 = new JButton("Exit");
         btnNewButton_5.setBounds(1100, 20, 150, 50);
@@ -92,6 +99,7 @@ public class Dashboard extends JFrame{
         btnNewButton_5.setToolTipText("Exit the application");
         btnNewButton_5.addActionListener(e -> System.exit(0));
         bgPanel.add(btnNewButton_5);
+        btnNewButton_5.setVisible(true);
 
         JButton logout = new JButton("Logout");
         logout.setBounds(900, 20, 150, 50);
@@ -107,6 +115,7 @@ public class Dashboard extends JFrame{
             new Login().setVisible(true);
         });
         bgPanel.add(logout);
+        logout.setVisible(true);
 
         setSize(1366,768);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -35,10 +35,12 @@ public class Bills extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
+        contentPane.setVisible(true);
 
         JLabel lblName = new JLabel("All Customer Information");
         lblName.setFont(new Font("Yu Mincho", Font.BOLD, 30));
         lblName.setBounds(40, 0, 500, 53);
+        lblName.setVisible(true);
         contentPane.add(lblName);
 
         table = new JTable();
@@ -46,6 +48,8 @@ public class Bills extends JFrame {
         header.setBackground(Color.BLUE);
         header.setForeground(Color.WHITE);
         table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        table.setVisible(true);
+        header.setVisible(true);
 
         JScrollPane jp = new JScrollPane(table);
         jp.setBounds(0, 60, 1100, 400);
@@ -64,9 +68,11 @@ public class Bills extends JFrame {
         btnLoadData.setBounds(40, 480, 150, 30);
         btnLoadData.setBackground(Color.BLACK);
         btnLoadData.setForeground(Color.WHITE);
+        btnLoadData.setVisible(true);
         contentPane.add(btnLoadData);
 
         getContentPane().setBackground(Color.WHITE);
+        setVisible(true);
     }
 
     private void loadData() {

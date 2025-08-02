@@ -35,16 +35,20 @@ public class admin extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
+        contentPane.setVisible(true);
 
         JLabel lblName = new JLabel("Admins");
         lblName.setFont(new Font("Yu Mincho", Font.BOLD, 40));
         lblName.setBounds(40, 0, 260, 53);
+        lblName.setVisible(true);
         contentPane.add(lblName);
 
         table = new JTable();
+        table.setVisible(true);
         JTableHeader header = table.getTableHeader();
         header.setBackground(Color.BLUE);
         header.setForeground(Color.WHITE);
+        header.setVisible(true);
         table.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         JScrollPane jp = new JScrollPane(table);
@@ -64,23 +68,18 @@ public class admin extends JFrame {
         btnLoadData.setBounds(40, 480, 150, 30);
         btnLoadData.setBackground(Color.BLACK);
         btnLoadData.setForeground(Color.WHITE);
+        btnLoadData.setVisible(true);
         contentPane.add(btnLoadData);
 
         getContentPane().setBackground(Color.WHITE);
+        getContentPane().setVisible(true);
     }
 
     private void loadData() {
         try {
+            table.setModel(new javax.swing.table.DefaultTableModel());
             // Get DAO for dual mode
-            java.sql.Connection conn = null;
-            if (HMS.dbMode == DatabaseMode.MYSQL) {
-                try {
-                    conn = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel_db", "root", "password");
-                } catch (Exception ex) {
-                    HMS.dbMode = DatabaseMode.MEMORY;
-                }
-            }
-            UserDAO userDAO = DAOFactory.getUserDAO(HMS.dbMode, conn);
+            UserDAO userDAO = DAOFactory.getUserDAO(HMS.dbMode, null);
             java.util.List<User> users = userDAO.getAllUsers();
 
             java.util.Vector<String> columnNames = new java.util.Vector<String>();
@@ -95,6 +94,7 @@ public class admin extends JFrame {
                 data.add(row);
             }
             table.setModel(new javax.swing.table.DefaultTableModel(data, columnNames));
+            table.setVisible(true);
         } catch(Exception e1) {
             e1.printStackTrace();
         }
