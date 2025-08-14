@@ -71,7 +71,130 @@ Hotel-Management-System-JavaFx/
 `Main.java` shows the first window where the user picks their role.  Then `CommonTask.pageNavigation()` opens the right FXML file.
 
 ---
+## ER Diagram
 
+![Manage Room](screenshots/er_diagram.png "Manager Manage Room") 
+
+### Plant UML for ER Diagram
+```plantuml
+@startchen
+!theme vibrant
+!pragma useVerticalIf on
+left to right direction
+
+<style>
+chenEntity {
+  BackgroundColor #4A90E2
+  FontColor white
+  FontSize 14
+  FontStyle bold
+  BorderColor #2E5A87
+  BorderThickness 2
+  RoundCorner 10
+}
+
+chenRelationship {
+  BackgroundColor #F39C12
+  FontColor white
+  FontSize 12
+  FontStyle bold
+  BorderColor #D68910
+  BorderThickness 2
+}
+
+chenAttribute {
+  BackgroundColor #E8F4FD
+  FontColor #2C3E50
+  FontSize 11
+  BorderColor #5DADE2
+  BorderThickness 1
+}
+
+.primary-key {
+  BackgroundColor #E74C3C
+  FontColor white
+  FontStyle bold
+}
+
+.foreign-key {
+  BackgroundColor #9B59B6
+  FontColor white
+}
+
+.weak-entity {
+  BackgroundColor #16A085
+  FontColor white
+  BorderStyle dashed
+  BorderThickness 3
+}
+
+.identifying-relationship {
+  BackgroundColor #27AE60
+  FontColor white
+}
+</style>
+
+' Main Entities with colorful styling
+entity "USERS" as USERS {
+  user_id <<key>> <<primary-key>>
+  name
+  role
+  password
+}
+
+entity "ROOMS" as ROOMS {
+  room_id <<key>> <<primary-key>>
+  type
+  price
+  status
+}
+
+entity "BOOKINGS" as BOOKINGS {
+  booking_id <<key>> <<primary-key>>
+  check_in
+  check_out
+  status
+}
+
+entity "PAYMENTS" as PAYMENTS {
+  pay_id <<key>> <<primary-key>>
+  amount
+  pay_date
+}
+
+entity "EMPLOYEES" as EMPLOYEES {
+  emp_id <<key>> <<primary-key>>
+  name
+  post
+  salary
+}
+
+' Relationships with modern styling
+relationship "makes" as MAKES {
+  booking_date
+}
+
+relationship "reserved_by" as RESERVED_BY {
+  reservation_date
+}
+
+relationship "paid_with" as PAID_WITH {
+  payment_method
+}
+
+' Connections with cardinality
+USERS -N- MAKES
+MAKES -1- BOOKINGS
+
+ROOMS -N- RESERVED_BY  
+RESERVED_BY -1- BOOKINGS
+
+BOOKINGS -1- PAID_WITH
+PAID_WITH -1- PAYMENTS
+
+@endchen
+
+```
 ## 4. Database Design
 Below is our database picture drawn with Mermaid. Boxes are tables, arrows show links.
 ```mermaid
