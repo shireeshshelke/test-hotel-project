@@ -4,6 +4,9 @@
 - Download Java FX SDK: https://download2.gluonhq.com/openjfx/21.0.8/openjfx-21.0.8_windows-x64_bin-sdk.zip
 
 ## Commands to run in Codespace
+### If no change is required the you can skip step 1, 2 and 3. Download the jar file from 
+https://github.com/shireeshshelke/test-hotel-project/blob/main/Hotel-Management-System-JavaFx/Hotel-Management-System-JavaFx-1.0-SNAPSHOT.jar
+
 ### 1. update java version (Only execute once for a codespace)
 ```bash
 sudo apt-get update -y && \
@@ -41,3 +44,4 @@ docker run --name mysql-server \
   ```bash
   java --module-path "C:\Users\hp\Downloads\javafx-sdk-17.0.16\lib" --add-modules javafx.controls,javafx.fxml,javafx.graphics --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED -jar Hotel-Management-System-JavaFx-1.0-SNAPSHOT.jar
   ```
+
