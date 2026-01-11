@@ -34,7 +34,7 @@ docker run --name mysql-server \
   -e MYSQL_USER=myuser \
   -e MYSQL_PASSWORD=myuserpassword \
   -p 3306:3306 \
-  -v "$(pwd)/mysql-init:/docker-entrypoint-initdb.d" \
+  -v "$(pwd)/Hotel-Management-System-JavaFx/mysql-init:/docker-entrypoint-initdb.d" \
   -d mysql:latest \
   --lower_case_table_names=1
 ```
@@ -42,6 +42,15 @@ docker run --name mysql-server \
 ## Start the application
 1. Once the database is up, run following command in windows:
   ```bash
-  java --module-path "C:\Users\hp\Downloads\javafx-sdk-17.0.16\lib" --add-modules javafx.controls,javafx.fxml,javafx.graphics --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED -jar Hotel-Management-System-JavaFx-1.0-SNAPSHOT.jar
+  java --module-path "C:\Users\hp\Downloads\HotelProject\javafx-sdk-21.0.8\lib" --add-modules javafx.controls,javafx.fxml,javafx.graphics --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED -jar Hotel-Management-System-JavaFx-1.0-SNAPSHOT.jar
   ```
 
+
+## User name and passwords
+### Admin
+user: 123
+password: admin
+
+### Customer
+user: payal
+password: payal
