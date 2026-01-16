@@ -1,43 +1,24 @@
--- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
---
--- Host: localhost    Database: HMS0
--- ------------------------------------------------------
--- Server version	8.0.25
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
 --
 -- Table structure for table `admininfo`
 --
 
 DROP TABLE IF EXISTS `admininfo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `admininfo` (
   `NID` varchar(25) NOT NULL,
   `NAME` varchar(30) DEFAULT NULL,
   `PASSWORD` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`NID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `admininfo`
 --
 
 LOCK TABLES `admininfo` WRITE;
-/*!40000 ALTER TABLE `admininfo` DISABLE KEYS */;
-INSERT INTO `admininfo` VALUES ('123','admin','admin'),('admin','admin','admin'),('root','admin','admin');
-/*!40000 ALTER TABLE `admininfo` ENABLE KEYS */;
+INSERT INTO `admininfo` VALUES 
+('ADM001','Payal Gadmale','admin123'),
+('ADM002','Priya Patil','admin456'),
+('ADM003','Vikram Jadhav','admin789');
 UNLOCK TABLES;
 
 --
@@ -45,8 +26,6 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `checkinoutinfo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `checkinoutinfo` (
   `SI_NO` int NOT NULL AUTO_INCREMENT,
   `NAME` varchar(30) DEFAULT NULL,
@@ -64,16 +43,23 @@ CREATE TABLE `checkinoutinfo` (
   `TOTALPRICE` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`SI_NO`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `checkinoutinfo`
 --
 
 LOCK TABLES `checkinoutinfo` WRITE;
-/*!40000 ALTER TABLE `checkinoutinfo` DISABLE KEYS */;
-INSERT INTO `checkinoutinfo` VALUES (16,'3','3','3','3','3','12','12','12','2021-12-06','2021-12-06','12','1','12'),(17,'2','2','2','2','2','9','9','9','2021-12-06','2021-12-06','9','1','9'),(18,'4','4','4','4','4','11','Non-Ac','Double','2021-12-06','2021-12-16','500','11','5500'),(19,'8','8','8','8','8','11','Non-Ac','Double','2021-12-06','2021-12-07','500','2','1000'),(20,'3','3','3','3','3','11','Non-Ac','Double','2021-12-06','2021-12-06','500','1','500'),(21,'2','3','2','2','2','13','Ac','12','2020-12-01','2020-12-31','12','31','372'),(22,'2','3','2','2','2','13','Ac','12','2020-09-01','2020-11-30','12','91','1092'),(23,'2','3','2','2','2','13','Ac','12','2013-07-01','2021-11-30','12','155','1860'),(24,'23','3','2','2','2','13','Ac','12','2021-12-06','2021-12-19','12','22','4884'),(25,'Md. payal','mursa@gamil.com','015555','Dhaka, Bangladesh','payal','1','AC','Single','2021-12-01','2021-12-10','1500','10','15000'),(26,'Md. payal','mursa@gamil.com','015555','Dhaka, Bangladesh','payal','11','Non-Ac','Double','2021-12-02','2021-12-19','500','22','4884'),(27,'payal','payal@gmail.com','payal','payal','payal','111','AC','Double','2021-11-30','2021-12-18','1000','19','19000'),(28,'payal','payal@gmail.com','payal','payal','payal','2','AC-Room','Double','2021-11-28','2021-12-08','2000','11','22000'),(29,'1','1','1','1','1','1','AC','Single','2021-11-29','2021-12-17','1500','19','28500'),(30,'payal','payal@gmail.com','01222222','Dhaka, Bangladesh','payal','1','AC','Single','2021-12-17','2021-12-19','1500','22','4884'),(31,'1','1','1','1','1','111','AC','Double','2021-11-28','2021-12-19','1000','22','4884'),(32,'4','4','4','4','4','12','12','12','2021-12-18','2021-12-19','12','22','4884'),(33,'payal','payal@gmail.com','01222222','Dhaka, Bangladesh','payal','123','1222','222','2021-11-30','2021-12-25','222','26','5772'),(34,'1','1','1111','1','1','123','1222','222','2021-11-28','2021-12-19','222','22','4884'),(35,'payal','payal@gmail.com','01222222','Dhaka, Bangladesh','payal','1','AC','Single','2021-11-29',NULL,'1500',NULL,NULL),(36,'payal','payal@gmail.com','01222222','Dhaka, Bangladesh','payal','11','Non-Ac','Double','2021-11-29',NULL,'500',NULL,NULL),(37,'payal','payal@gmail.com','01222222','Dhaka, Bangladesh','payal','12','12','12','2021-11-29',NULL,'12',NULL,NULL),(38,'payal','payal@gmail.com','01222222','Dhaka, Bangladesh','payal','111','AC','Double','2021-12-19',NULL,'1000',NULL,NULL),(39,'1','1','1111','1','1','123','1222','222','2021-12-19',NULL,'222',NULL,NULL);
-/*!40000 ALTER TABLE `checkinoutinfo` ENABLE KEYS */;
+INSERT INTO `checkinoutinfo` VALUES 
+(1,'Payal Gadmale','payal.gadmale@gmail.com','9876543210','Pen, MH 411001','PG001','101','AC','Single','2024-01-15','2024-01-20','2000','5','10000'),
+(2,'Priya Patil','priya.patil@gmail.com','9123456789','Mumbai, MH 400001','PP001','102','AC','Double','2024-01-16','2024-01-18','2500','2','5000'),
+(3,'Amit Singh','amit.singh@gmail.com','9876123456','Delhi, DL 110001','AS001','103','Non-AC','Single','2024-01-14','2024-01-19','1500','5','7500'),
+(4,'Neha Desai','neha.desai@gmail.com','9988776655','Bangalore, KA 560001','ND001','104','AC','Double','2024-01-10','2024-01-25','2200','15','33000'),
+(5,'Vikram Jadhav','vikram.jadhav@gmail.com','9765432109','Pune, MH 411004','VJ001','105','Non-AC','Double','2024-01-12','2024-01-22','1800','10','18000'),
+(6,'Ananya Reddy','ananya.reddy@gmail.com','9654321098','Hyderabad, TS 500001','AR001','101','AC','Single','2024-01-17','2024-01-20','2000','3','6000'),
+(7,'Rohan Gupta','rohan.gupta@gmail.com','9543210987','Pune, MH 411002','RG001','102','AC','Double','2024-01-13','2024-01-23','2500','10','25000'),
+(8,'Sneha Iyer','sneha.iyer@gmail.com','9432109876','Bangalore, KA 560002','SI001','103','Non-AC','Single','2024-01-11','2024-01-21','1500','10','15000'),
+(9,'Sanjay Sharma','sanjay.sharma@gmail.com','9321098765','Mumbai, MH 400002','SS001','104','AC','Double','2024-01-15','2024-01-17','2200','2','4400'),
+(10,'Kavita Nair','kavita.nair@gmail.com','9210987654','Pune, MH 411005','KN001','105','Non-AC','Double','2024-01-16','2024-01-26','1800','10','18000');
 UNLOCK TABLES;
 
 --
@@ -81,8 +67,6 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `customerinfo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customerinfo` (
   `NAME` varchar(30) DEFAULT NULL,
   `NID` varchar(30) NOT NULL,
@@ -92,16 +76,17 @@ CREATE TABLE `customerinfo` (
   `ADDRESS` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`NID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `customerinfo`
 --
 
 LOCK TABLES `customerinfo` WRITE;
-/*!40000 ALTER TABLE `customerinfo` DISABLE KEYS */;
-INSERT INTO `customerinfo` VALUES ('123','1','1','1','1111','1'),('4','4','4','4','4','4'),('a','a','a','a','a','a'),('payal','payal','payal','payal@gmail.com','01222222','Dhaka, Bangladesh');
-/*!40000 ALTER TABLE `customerinfo` ENABLE KEYS */;
+INSERT INTO `customerinfo` VALUES 
+('Payal Gadmale','PG001','gadmale2024','payal.gadmale@gmail.com','9876543210','Pen, Pen, MH 411001'),
+('Priya Patil','PP001','patil2024','priya.patil@gmail.com','9123456789','Apartment 12, Mumbai, MH 400001'),
+('Amit Singh','AS001','singh2024','amit.singh@gmail.com','9876123456','House 25, Delhi, DL 110001'),
+('Neha Desai','ND001','desai2024','neha.desai@gmail.com','9988776655','Flat 3, Bangalore, KA 560001');
 UNLOCK TABLES;
 
 --
@@ -109,8 +94,6 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `employeeinfo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `employeeinfo` (
   `NAME` varchar(30) DEFAULT NULL,
   `NID` varchar(30) NOT NULL,
@@ -120,16 +103,19 @@ CREATE TABLE `employeeinfo` (
   `PHONE` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`NID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `employeeinfo`
 --
 
 LOCK TABLES `employeeinfo` WRITE;
-/*!40000 ALTER TABLE `employeeinfo` DISABLE KEYS */;
-INSERT INTO `employeeinfo` VALUES ('1','1','1','1','1','1'),('123','111','1111','111','111','111'),('2','2','2','2','2','2'),('3','3','3','3','3','3'),('Md. payal','payal','payal','mur@gmail.com','dhaka, bangla','01222222'),('rakib','rakib','rakib','hasan@gmail.com','dhaka','012323');
-/*!40000 ALTER TABLE `employeeinfo` ENABLE KEYS */;
+INSERT INTO `employeeinfo` VALUES 
+('Payal Gadmale','PG001','pgpass123','payal.gadmale@gmail.com','Pen, Pen, MH 411001','9876543210'),
+('Ananya Reddy','AR001','arpass456','ananya.reddy@gmail.com','Flat 5, Hyderabad, TS 500001','9654321098'),
+('Rohan Gupta','RG001','rgpass789','rohan.gupta@gmail.com','Apt 8, Pune, MH 411002','9543210987'),
+('Sneha Iyer','SI001','sipass101','sneha.iyer@gmail.com','House 15, Bangalore, KA 560002','9432109876'),
+('Sanjay Sharma','SS001','sspass202','sanjay.sharma@gmail.com','Flat 7, Mumbai, MH 400002','9321098765'),
+('Kavita Nair','KN001','knpass303','kavita.nair@gmail.com','House 20, Pune, MH 411005','9210987654');
 UNLOCK TABLES;
 
 --
@@ -137,8 +123,6 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `roominfo`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `roominfo` (
   `ROOM_NO` varchar(30) NOT NULL,
   `TYPE` varchar(10) DEFAULT NULL,
@@ -147,25 +131,21 @@ CREATE TABLE `roominfo` (
   `STATUS` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`ROOM_NO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `roominfo`
 --
 
 LOCK TABLES `roominfo` WRITE;
-/*!40000 ALTER TABLE `roominfo` DISABLE KEYS */;
-INSERT INTO `roominfo` VALUES ('1','AC','Single','1500','Booked'),('11','Non-Ac','Double','500','Booked'),('111','AC','Double','1000','Booked'),('12','12','12','12','Booked'),('123','1222','222','222','Booked'),('13','Ac','12','12','Available'),('2','AC-Room','Double','2000','Available'),('3','AC','Double','600','Available'),('9','9','9','9','Available');
-/*!40000 ALTER TABLE `roominfo` ENABLE KEYS */;
+INSERT INTO `roominfo` VALUES 
+('101','AC','Single','2000','Booked'),
+('102','AC','Double','2500','Booked'),
+('103','Non-AC','Single','1500','Available'),
+('104','AC','Double','2200','Booked'),
+('105','Non-AC','Double','1800','Available'),
+('106','AC','Triple','3000','Available'),
+('107','Deluxe AC','Double','3500','Available'),
+('108','Non-AC','Single','1200','Available'),
+('109','AC','Single','2000','Booked'),
+('110','Suite AC','Double','4500','Available');
 UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-12-26 14:14:02
